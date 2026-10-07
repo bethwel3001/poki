@@ -3,12 +3,19 @@
 > **Screen-Free, Audio-First Urban Exploration**  
 > *Built for the Hacktoberfest 2026 "Touch Grass" Challenge.*
 
+[![DEV.to](https://img.shields.io/badge/DEV.to-Read%20the%20DEV.to%20Submission-0a0a0a?style=for-the-badge&logo=devdotto&logoColor=white)](https://dev.to/bethwel3001/pori-phone-offline-roam-instantly-43ai)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![pnpm](https://img.shields.io/badge/pnpm-9-orange?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
 [![NES.css](https://img.shields.io/badge/Style-NES.css-209cee?style=for-the-badge)](https://nostalgic-css.github.io/NES.css/)
 [![MongoDB Atlas](https://img.shields.io/badge/MongoDB-Atlas-green?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/atlas)
 [![Sentry](https://img.shields.io/badge/Sentry-Monitored-purple?style=for-the-badge&logo=sentry)](https://sentry.io/)
+
+---
+
+### Hacktoberfest 2026 Showcase
+Read the project story, technical breakdown, and architecture write-up:  
+**[Read the DEV.to Submission](https://dev.to/bethwel3001/pori-phone-offline-roam-instantly-43ai)**
 
 ---
 
