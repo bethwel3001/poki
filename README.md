@@ -1,4 +1,4 @@
-# 🌲 PORI (ポ リ)
+# PORI (ポ リ)
 
 > **Screen-Free, Audio-First Urban Exploration**  
 > *Built for the Hacktoberfest 2026 "Touch Grass" Challenge.*
@@ -12,7 +12,7 @@
 
 ---
 
-## 🗺️ Overview
+## Overview
 
 Most navigation applications glue your eyes to a glowing blue line on a screen, disconnecting you from the world around you. **PORI** flips this paradigm upside down: it forces you to put your phone in your pocket and **look up**.
 
@@ -20,26 +20,26 @@ Using real-time device geolocation, live reverse-geocoding, and open-weight gene
 
 ---
 
-## 🎮 Core Features
+## Core Features
 
-* **🚶 Solo Wandering**  
+* **Solo Wandering**  
   Generates contextual walking instructions based on live GPS coordinates, calculated bearing, and immediate real-world landmarks. The guide describes the journey dynamically—pointing out notable roads, buildings, and geographic focal points.
 
-* **🤝 Blind Intercept**  
+* **Blind Intercept**  
   Enables two users to join a shared exploration session (`friendSessionId`). Rather than sharing live map pins, PORI computes the relative distance and bearing using geospatial database queries, guiding both wanderers toward an audio-guided rendezvous point.
 
-* **🌑 OLED Blackout Mode**  
+* **OLED Blackout Mode**  
   Once audio playback begins, the display transitions into a pure-black canvas (`#000000`). Utilizing the native **Screen Wake Lock API**, it keeps background tasks and audio alive while preventing pocket touches and minimizing battery consumption on OLED displays. Awakened easily with a double-tap or dedicated wake control.
 
-* **🕹️ 8-Bit Retro Interface**  
+* **8-Bit Retro Interface**  
   Styled with a lightweight, nostalgic NES aesthetic using [NES.css](https://nostalgic-css.github.io/NES.css/), featuring custom pixel-art buttons, dark-mode inputs, and classic gaming typography.
 
-* **🛡️ Resilient Telemetry & Fallbacks**  
+* **Resilient Telemetry & Fallbacks**  
   Full end-to-end monitoring powered by Sentry ensures trace emissions across API requests, geolocation failures, and TTS audio synthesis, backed by graceful audio fallbacks.
 
 ---
 
-## 🛠️ Technology Stack & Sponsor Tracks
+## Technology Stack & Sponsor Tracks
 
 | Category / Sponsor | Technology | Implementation Details |
 | :--- | :--- | :--- |
@@ -52,7 +52,7 @@ Using real-time device geolocation, live reverse-geocoding, and open-weight gene
 
 ---
 
-## 🚀 Local Setup Instructions
+## Local Setup Instructions
 
 ### Prerequisites
 * **Node.js**: v18.18.0 or newer
@@ -111,7 +111,7 @@ pnpm start
 
 ---
 
-## 🧪 Testing Constraints & Geolocation Spoofing
+## Testing Constraints & Geolocation Spoofing
 
 Because PORI relies on real-world spatial positioning and reverse-geocoding, testing on desktop browsers requires spoofing GPS coordinates:
 
@@ -126,7 +126,7 @@ Because PORI relies on real-world spatial positioning and reverse-geocoding, tes
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are warmly welcomed! Please review our [CONTRIBUTING.md](CONTRIBUTING.md) guide before submitting pull requests.
 
@@ -137,6 +137,6 @@ Our core development principles:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](LICENSE).
