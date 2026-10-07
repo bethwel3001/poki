@@ -84,28 +84,43 @@ export default function Home() {
     }
   }
 
+  const getPosition = () =>
+    new Promise<GeolocationPosition>((resolve, reject) =>
+      navigator.geolocation.getCurrentPosition(resolve, reject),
+    );
+
   async function handleStartQuest() {
     setIsLoading(true);
     setStatus("Status: Acquiring GPS signal...");
 
+    let latitude: number;
+    let longitude: number;
+
     try {
-      // 1) Get HTML5 Geolocation
-      const position = await new Promise<GeolocationPosition>(
-        (resolve, reject) => {
-          if (typeof window === "undefined" || !navigator.geolocation) {
-            reject(new Error("Geolocation is not supported by your browser."));
-            return;
-          }
+      if (typeof window === "undefined" || !navigator.geolocation) {
+        throw new Error("Geolocation is not supported by your browser.");
+      }
+      const position = await getPosition();
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+    } catch (err: unknown) {
+      const message =
+        typeof window !== "undefined" &&
+        err instanceof GeolocationPositionError &&
+        err.code === err.PERMISSION_DENIED
+          ? "Location permission was denied. Please allow location access to start your quest."
+          : err instanceof Error
+            ? err.message
+            : "Location permission denied or unavailable.";
 
-          navigator.geolocation.getCurrentPosition(resolve, reject, {
-            enableHighAccuracy: true,
-            timeout: 15000,
-            maximumAge: 0,
-          });
-        },
-      );
+      alert(message);
+      console.error("Geolocation error:", err);
+      setStatus(`Status: ${message}`);
+      setIsLoading(false);
+      return;
+    }
 
-      const { latitude, longitude } = position.coords;
+    try {
 
       // 2) POST to /api/location
       setStatus("Status: Transmitting location...");
