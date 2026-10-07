@@ -1,46 +1,142 @@
-# PORI
+# 🌲 PORI (ポ リ)
 
-PORI is an audio-first, screen-free urban explorer built for the Hacktoberfest 2026 "Touch Grass" Challenge. 
+> **Screen-Free, Audio-First Urban Exploration**  
+> *Built for the Hacktoberfest 2026 "Touch Grass" Challenge.*
 
-Instead of staring at a map routing line, PORI forces users to put their phones in their pockets. It utilizes open-weight AI and real-time reverse geocoding to generate hyper-local, audio-guided walking quests based on the user's immediate physical surroundings. 
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-9-orange?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
+[![NES.css](https://img.shields.io/badge/Style-NES.css-209cee?style=for-the-badge)](https://nostalgic-css.github.io/NES.css/)
+[![MongoDB Atlas](https://img.shields.io/badge/MongoDB-Atlas-green?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/atlas)
+[![Sentry](https://img.shields.io/badge/Sentry-Monitored-purple?style=for-the-badge&logo=sentry)](https://sentry.io/)
 
-## Core Features
-- Solo Wandering: Generates a contextual walking script based on live GPS data and local landmarks.
-- Blind Intercept: Allows two users to share a session and receive audio instructions to find each other in the real world without looking at a screen.
-- OLED Blackout Mode: Renders a pure black overlay while the app runs, saving battery and preventing accidental touches while the phone is in a pocket.
-- 8-Bit Interface: Lightweight, retro styling using NES.css.
-- Agent Tracing & Monitoring: Integrated with Sentry for robust error tracking and fallback management.
+---
 
-## Technology Stack & Hacktoberfest Sponsor Categories
-- Framework: Next.js (App Router), React, pnpm
-- Best Use of Gemma (Google Open-Weight AI): Utilizing `gemma2-9b-it` via Groq for high-speed, localized route planning and natural script generation.
-- Best Use of MongoDB Atlas: Storing GeoJSON and executing high-performance geospatial queries ($geoNear).
-- Best Use of ElevenLabs: Delivering real-time conversational voice narration via eleven_flash_v2_5.
-- Best Use of Sentry: Agent tracing, error capturing, and fallback management.
-- Geocoding: SerpApi (Google Maps Reverse Geocoding)
-- Styling: NES.css
+## 🗺️ Overview
 
-## Local Setup Instructions
+Most navigation applications glue your eyes to a glowing blue line on a screen, disconnecting you from the world around you. **PORI** flips this paradigm upside down: it forces you to put your phone in your pocket and **look up**.
 
-1. Clone the repository:
-git clone git@github.com:bethwel3001/poki.git && cd poki
+Using real-time device geolocation, live reverse-geocoding, and open-weight generative AI, PORI constructs dynamic, highly contextual spoken-word quests. Instead of generic turn-by-turn distance counters, your guide narrates your surroundings with real physical landmarks, cultural facts, and logical routes—delivering a seamless, screenless adventure.
 
-2. Install dependencies:
+---
+
+## 🎮 Core Features
+
+* **🚶 Solo Wandering**  
+  Generates contextual walking instructions based on live GPS coordinates, calculated bearing, and immediate real-world landmarks. The guide describes the journey dynamically—pointing out notable roads, buildings, and geographic focal points.
+
+* **🤝 Blind Intercept**  
+  Enables two users to join a shared exploration session (`friendSessionId`). Rather than sharing live map pins, PORI computes the relative distance and bearing using geospatial database queries, guiding both wanderers toward an audio-guided rendezvous point.
+
+* **🌑 OLED Blackout Mode**  
+  Once audio playback begins, the display transitions into a pure-black canvas (`#000000`). Utilizing the native **Screen Wake Lock API**, it keeps background tasks and audio alive while preventing pocket touches and minimizing battery consumption on OLED displays. Awakened easily with a double-tap or dedicated wake control.
+
+* **🕹️ 8-Bit Retro Interface**  
+  Styled with a lightweight, nostalgic NES aesthetic using [NES.css](https://nostalgic-css.github.io/NES.css/), featuring custom pixel-art buttons, dark-mode inputs, and classic gaming typography.
+
+* **🛡️ Resilient Telemetry & Fallbacks**  
+  Full end-to-end monitoring powered by Sentry ensures trace emissions across API requests, geolocation failures, and TTS audio synthesis, backed by graceful audio fallbacks.
+
+---
+
+## 🛠️ Technology Stack & Sponsor Tracks
+
+| Category / Sponsor | Technology | Implementation Details |
+| :--- | :--- | :--- |
+| **Open-Weight AI** | **Gemma via Groq Cloud** | High-speed inference using `gemma2-9b-it` / open-weight models via Groq SDK to construct concise, TTS-optimized spoken route scripts under 4 sentences. |
+| **Geospatial Database** | **MongoDB Atlas** | Stores active explorer coordinates using GeoJSON `Point` primitives indexed with a high-performance `2dsphere` index for `$near` proximity queries. |
+| **Voice Synthesis** | **ElevenLabs** | Streams lifelike, low-latency narration using ElevenLabs' conversational `eleven_flash_v2_5` text-to-speech model. |
+| **Application Monitoring** | **Sentry** | Full instrumentation across client and server (`@sentry/nextjs`), capturing API request failures, geolocation denials, and trace performance. |
+| **Hyper-Local Geocoding** | **SerpApi** | Queries the Google Maps reverse-geocoding engine to retrieve immediate physical landmarks, verified street names, and local establishments. |
+| **Frontend & Framework** | **Next.js & React (App Router)** | Zero-bloat client architecture with native browser APIs (`navigator.geolocation`, `HTMLAudioElement`, `navigator.wakeLock`). |
+
+---
+
+## 🚀 Local Setup Instructions
+
+### Prerequisites
+* **Node.js**: v18.18.0 or newer
+* **pnpm**: v9.0.0 or newer (`npm install -g pnpm`)
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/bethwel3001/pori.git
+cd pori
+```
+
+### 2. Install Dependencies
+```bash
 pnpm install
+```
 
-3. Configure Environment Variables:
-Create a .env.local file in the root directory and add the following keys:
-MONGODB_URI="mongodb+srv://<username>:<password>@<cluster>.mongodb.net/pori"
-GROQ_API_KEY="your_groq_key"
-ELEVENLABS_API_KEY="your_elevenlabs_key"
-SERPAPI_API_KEY="your_serpapi_key"
-NEXT_PUBLIC_SENTRY_DSN="your_sentry_dsn"
+### 3. Configure Environment Variables
+Create a `.env.local` file in the root directory:
 
-4. Run the development server:
+```bash
+cp .env.example .env.local 2>/dev/null || touch .env.local
+```
+
+Populate `.env.local` with your API credentials:
+
+```env
+# MongoDB Atlas
+MONGODB_URI="mongodb+srv://<username>:<password>@<cluster>.mongodb.net/pori?retryWrites=true&w=majority"
+
+# Groq Cloud (Gemma / Open-Weight LLM)
+GROQ_API_KEY="gsk_your_groq_api_key_here"
+
+# ElevenLabs (Text-to-Speech)
+ELEVENLABS_API_KEY="your_elevenlabs_api_key_here"
+
+# SerpApi (Google Maps Engine Reverse Geocoding)
+SERPAPI_API_KEY="your_serpapi_api_key_here"
+
+# Sentry Monitoring
+NEXT_PUBLIC_SENTRY_DSN="https://<public_key>@<org>.ingest.sentry.io/<project_id>"
+SENTRY_AUTH_TOKEN="sntrys_your_sentry_auth_token_here"
+```
+
+### 4. Run the Development Server
+```bash
 pnpm dev
+```
 
-## Testing Constraints
-To test locally, your browser must allow Location permissions. If testing on a desktop, you may need to use Chrome DevTools (Sensors tab) to spoof a specific GPS coordinate for SerpApi to return valid landmarks.
+Visit [`http://localhost:3000`](http://localhost:3000) in your browser to start your quest.
 
-## Contributing
-Please see CONTRIBUTING.md for details on our development philosophy and how to submit pull requests.
+### 5. Build for Production
+```bash
+pnpm build
+pnpm start
+```
+
+---
+
+## 🧪 Testing Constraints & Geolocation Spoofing
+
+Because PORI relies on real-world spatial positioning and reverse-geocoding, testing on desktop browsers requires spoofing GPS coordinates:
+
+1. Open [`http://localhost:3000`](http://localhost:3000) in **Google Chrome**.
+2. Press `F12` (or `Cmd + Option + I` on macOS) to open **Chrome DevTools**.
+3. Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on macOS) to open the Command Menu.
+4. Type **`Sensors`** and select **Show Sensors**.
+5. Under the **Location** dropdown, choose a preset (e.g., *London*, *San Francisco*, *Tokyo*) or select **Other...** and enter coordinates with rich landmark density (e.g., Nairobi `-1.286389, 36.817223`).
+6. Click **"Start Quest"** and grant browser location permissions.
+7. Verify that SerpApi resolves local landmarks and that ElevenLabs streams the corresponding audio guide.
+8. *(Optional)* Click the red **"Test Sentry"** button to confirm error trace emissions in your Sentry project dashboard.
+
+---
+
+## 🤝 Contributing
+
+Contributions are warmly welcomed! Please review our [CONTRIBUTING.md](CONTRIBUTING.md) guide before submitting pull requests.
+
+Our core development principles:
+* **Zero Bloat**: Favor native browser APIs (`fetch`, `HTMLAudioElement`, `wakeLock`) over unnecessary client-side libraries.
+* **Modular Clean Architecture**: Maintain separation between server route handlers and client UI components.
+* **Minimalist Retro Aesthetic**: Adhere strictly to the NES.css design system.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
