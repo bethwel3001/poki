@@ -47,3 +47,6 @@ pnpm dev
 
 5. Testing Constraints
 To test locally, your browser must allow Location permissions. If testing on a desktop, you may need to use Chrome DevTools (Sensors tab) to spoof a specific GPS coordinate for SerpApi to return valid landmarks.
+
+## Contributing
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on our development philosophy and how to submit pull requests.

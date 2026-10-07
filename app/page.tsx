@@ -14,6 +14,7 @@ export default function Home() {
   // Screen Wake Lock API helpers
   async function requestWakeLock() {
     if (typeof window !== "undefined" && "wakeLock" in navigator) {
+      if (document.visibilityState !== "visible") return;
       try {
         const sentinel = await navigator.wakeLock.request("screen");
         wakeLockRef.current = sentinel;
