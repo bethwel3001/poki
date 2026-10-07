@@ -50,3 +50,6 @@ To test locally, your browser must allow Location permissions. If testing on a d
 
 ## Contributing
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on our development philosophy and how to submit pull requests.
+
+## Contributing
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on our development philosophy and how to submit pull requests.
