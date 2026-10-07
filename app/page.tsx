@@ -149,6 +149,7 @@ export default function Home() {
         body: JSON.stringify({
           distance,
           bearing,
+          destination: goal,
           goal,
           latitude,
           longitude,
