@@ -117,6 +117,7 @@ export default function Home() {
 
       alert(message);
       console.error("Geolocation error:", err);
+      Sentry.captureException(err);
       setStatus(`Status: ${message}`);
       setIsLoading(false);
       return;
@@ -219,6 +220,7 @@ export default function Home() {
       setIsWalking(true);
     } catch (err) {
       console.error("Exploration error:", err);
+      Sentry.captureException(err);
       setStatus(
         `Status: ${err instanceof Error ? err.message : "Exploration failed."}`,
       );
@@ -295,14 +297,40 @@ export default function Home() {
             disabled={isLoading}
           />
         </div>
-        <button
-          type="button"
-          className="nes-btn is-primary"
-          onClick={handleStartQuest}
-          disabled={isLoading}
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
-          {isLoading ? "Exploring..." : "Start Quest"}
-        </button>
+          <button
+            type="button"
+            className="nes-btn is-primary"
+            onClick={handleStartQuest}
+            disabled={isLoading}
+          >
+            {isLoading ? "Exploring..." : "Start Quest"}
+          </button>
+          <button
+            type="button"
+            className="nes-btn is-error"
+            onClick={() => {
+              try {
+                throw new Error("PORI test error: Sentry trace verification");
+              } catch (testError) {
+                Sentry.captureException(testError);
+                setStatus("Status: Sentry test trace emitted.");
+              }
+            }}
+            disabled={isLoading}
+            style={{ fontSize: "0.75rem" }}
+          >
+            Test Sentry
+          </button>
+        </div>
         <p className="status" role="status">
           {status}
         </p>

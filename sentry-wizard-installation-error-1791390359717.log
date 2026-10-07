@@ -1,0 +1,34 @@
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/magic-string: request to https://registry.npmjs.org/magic-string failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/magic-string: request to https://registry.npmjs.org/magic-string failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/picomatch: request to https://registry.npmjs.org/picomatch failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/@rollup%2Fpluginutils: request to https://registry.npmjs.org/@rollup%2Fpluginutils failed, reason: 
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/estree-walker: request to https://registry.npmjs.org/estree-walker failed, reason: 
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/fsevents: request to https://registry.npmjs.org/fsevents failed, reason: 
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/oxc-parser: request to https://registry.npmjs.org/oxc-parser failed, reason: 
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/commondir: request to https://registry.npmjs.org/commondir failed, reason: 
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/supports-color: request to https://registry.npmjs.org/supports-color failed, reason: 
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/@types%2Festree: request to https://registry.npmjs.org/@types%2Festree failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/@types%2Festree: request to https://registry.npmjs.org/@types%2Festree failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/@jridgewell%2Fsourcemap-codec: request to https://registry.npmjs.org/@jridgewell%2Fsourcemap-codec failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/@jridgewell%2Fsourcemap-codec: request to https://registry.npmjs.org/@jridgewell%2Fsourcemap-codec failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/estree-walker: request to https://registry.npmjs.org/estree-walker failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/picomatch: request to https://registry.npmjs.org/picomatch failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/minimatch: request to https://registry.npmjs.org/minimatch failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/minipass: request to https://registry.npmjs.org/minipass failed, reason: Socket timeout
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/path-scurry: request to https://registry.npmjs.org/path-scurry failed, reason: Socket timeout
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/has-flag: request to https://registry.npmjs.org/has-flag failed, reason: Socket timeout
+ ERR_PNPM_META_FETCH_FAIL  GET https://registry.npmjs.org/@oxc-project%2Ftypes: request to https://registry.npmjs.org/@oxc-project%2Ftypes failed, reason: Socket timeout
+ EAI_AGAIN  request to https://registry.npmjs.org/sentry/-/sentry-0.45.0.tgz failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+
+This error happened while installing the dependencies of @sentry/nextjs@11.5.0
+ at @sentry/bundler-plugins@11.5.0
+
+FetchError: request to https://registry.npmjs.org/sentry/-/sentry-0.45.0.tgz failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org
+    at ClientRequest.<anonymous> (/home/bethwel/.npm-global/lib/node_modules/pnpm/dist/pnpm.cjs:42161:18)
+    at ClientRequest.emit (node:events:519:28)
+    at emitErrorEvent (node:_http_client:107:11)
+    at TLSSocket.socketErrorListener (node:_http_client:574:5)
+    at TLSSocket.emit (node:events:531:35)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
