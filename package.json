@@ -1,0 +1,30 @@
+{
+  "name": "pori",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "postinstall": "pnpm build"
+  },
+  "dependencies": {
+    "@groq/groq-sdk": "npm:groq-sdk@^1.6.0",
+    "groq-sdk": "^1.6.0",
+    "mongodb": "^6.21.0",
+    "nes.css": "^2.3.0",
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.0",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.30.3"
+}
