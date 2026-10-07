@@ -1,0 +1,79 @@
+html {
+  height: 100%;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  color: #f8f8f8;
+  background: #000;
+  font-family: "Press Start 2P", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shell {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 2rem;
+}
+
+.console {
+  display: grid;
+  width: min(100%, 42rem);
+  justify-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.console h1 {
+  color: #fff;
+  font-size: clamp(3rem, 13vw, 8rem);
+  line-height: 1;
+  text-shadow:
+    0.08em 0 #209cee,
+    0.16em 0 #e76e55;
+}
+
+.status {
+  width: min(100%, 28rem);
+  min-height: 5rem;
+  padding: 1rem;
+  border: 4px solid #fff;
+  color: #92cc41;
+  font-size: 0.75rem;
+  line-height: 1.8;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
